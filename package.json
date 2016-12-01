@@ -1,0 +1,30 @@
+{
+  "name": "may-the-nodejs-be-with-you",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "stylus": "stylus -u autoprefixer-stylus -w --sourcemap-inline assets/stylus/main.styl -o public/css/main.css && browser-sync reload --port 4000 --files='public/css/main.css'",
+    "sync": "browser-sync start --ws -f '**/*' --proxy localhost:3000 --no-open --port 4000 --reload-delay=300 --reload-debounce=500",
+    "server": "nodemon -e js app.js",
+    "dev": "npm-run-all --parallel sync stylus server",
+    "start": "NODE_ENV=production node app.js",
+    "lint": "eslint --env browser, node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dalibor Gogic <mail@daliborgogic.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "npm-run-all": "^3.1.2",
+    "pug": "^2.0.0-beta6",
+    "stylus": "^0.54.5"
+  },
+  "devDependencies": {
+    "eslint": "^3.11.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "nodemon": "^1.11.0"
+  }
+}
